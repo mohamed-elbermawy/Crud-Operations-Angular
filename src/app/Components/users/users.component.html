@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 mt-5 text-right">
+      <button
+        class="btn btn-primary"
+        routerLink="add"
+        routerLinkActiveOptions="{exact:true}"
+      >
+        Add New User
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-8 offset-2 mt-5">
+      <table class="table table-light">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col" colspan="2">Options</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <th scope="row">
+              <a routerLink="{{ user.id }}">{{ user.id }}</a>
+            </th>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>
+              <button class="btn btn-primary" routerLink="edit/{{ user.id }}">
+                Edit
+              </button>
+            </td>
+            <td>
+              <button class="btn btn-danger" routerLink="delete/{{ user.id }}">
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
